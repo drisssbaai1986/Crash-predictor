@@ -1,3 +1,4 @@
+
 name: Build Crash Predictor APK
 
 on:
@@ -25,10 +26,10 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
-with:
-  packages: platform-tools
-      -
-      name: Install Gradle
+        with:
+          packages: platform-tools
+
+      - name: Install Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
@@ -44,7 +45,7 @@ with:
 
       - name: Check APK
         run: |
-          test -f build-src/CrashPredictorAndroid/app/build/outputs/apk/debug/app-debug.apk
+        test -f build-src/CrashPredictorAndroid/app/build/outputs/apk/debug/app-debug.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
