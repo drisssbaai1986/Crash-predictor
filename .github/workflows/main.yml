@@ -45,8 +45,8 @@ jobs:
 
       - name: Check APK
         run: |
-              - name: Check APK
-        run: |
+      
+      
           test -f build-src/CrashPredictorAndroid/app/build/outputs/apk/debug/app-debug.apk
         
 
