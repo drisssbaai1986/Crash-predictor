@@ -1,3 +1,4 @@
+
 name: Build Crash Predictor APK
 
 on:
@@ -23,8 +24,13 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      uses: android-actions/setup-android@v4
+      - name: Set up Android
+        uses: android-actions/setup-android@v4
 
+      - name: Install Android SDK packages
+        run: |
+          yes | sdkmanager --licenses
+          sdkmanager --install "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
